@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>individual book</title>
+</head>
+<body>
+    <h1>Book details</h1>
+        <p>
+            {{ library_book.title }}, written by {{ library_book.author }} : {{ library_book.genre }} : In the library {{ library_book.checked_out}}
+            
+        </p>
+        <li><a href="/library/check_out/{{ library_book.title }}">Check out</a></li>
+        <li><a href="/library/check_in/{{ library_book.title }}">Check in</a></li>
+</body>
+<footer>
+    <nav>
+        <li>
+            <a href="/library">Home</a>
+        </li>
+    </nav>
+</footer>
+</html>

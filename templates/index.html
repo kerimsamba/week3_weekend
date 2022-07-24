@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+
+</head>
+<body>
+    <h1>The Library</h1>
+    {% for book in library_list %}
+        <section>
+            <p>
+                <!-- {{ the_library }} -->
+                {{ book.title  }} : {{ book.author }} : {{ book.genre  }} : 
+                {{ book.checked_out }} <a href="/library/{{ book.title }}">Goto</a>
+                <!-- <li><a href="/library/check_out/{{ book.title }}">Check out</a></li>
+                <li><a href="/library/check_in/{{ book.title }}">Check in</a></li> -->
+            </p>
+        </section>
+    {% endfor %}
+    <footer>
+        <nav>
+            <h2>Admin</h2>
+                <li><a href="add_book">Add a book</a></li>
+                <li><a href="remove_book">Remove a book</a></li>
+
+            
+        </nav>
+    </footer>
+</body>
+</html>
