@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,18 +13,17 @@
     <h1>The Library</h1>
     {% for book in library_list %}
         <section>
-            <p>
-                <!-- {{ the_library }} -->
-                {{ book.title  }} : {{ book.author }} : {{ book.genre  }} : 
-                {{ book.checked_out }} <a href="/library/{{ book.title }}">Goto</a>
-                <!-- <li><a href="/library/check_out/{{ book.title }}">Check out</a></li>
-                <li><a href="/library/check_in/{{ book.title }}">Check in</a></li> -->
-            </p>
+            <nav>
+                <a href="/library/{{ book.title }}"> {{ book.title  }} : {{ book.author }} : 
+                    {{ book.genre  }}
+             </a>Available: 
+                {% if book.checked_out == false %}&#10004; {% else %}&#10060; {% endif %}
+            </nav>
         </section>
     {% endfor %}
     <footer>
         <nav>
-            <h2>Admin</h2>
+            <h4>Admin</h4>
                 <li><a href="add_book">Add a book</a></li>
                 <li><a href="remove_book">Remove a book</a></li>
 

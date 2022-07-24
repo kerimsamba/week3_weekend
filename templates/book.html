@@ -9,7 +9,8 @@
 <body>
     <h1>Book details</h1>
         <p>
-            {{ library_book.title }}, written by {{ library_book.author }} : {{ library_book.genre }} : In the library {{ library_book.checked_out}}
+            {{ library_book.title }}, written by {{ library_book.author }} : {{ library_book.genre }} : In the library 
+            {% if library_book.checked_out == false %}&#10004; {% else %}&#10060; {% endif %}
             
         </p>
         <li><a href="/library/check_out/{{ library_book.title }}">Check out</a></li>
